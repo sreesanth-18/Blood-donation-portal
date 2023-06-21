@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <tile>Donor registration</tile>
+    </head>
+    <body>
+        <h1>Blood Donor Signup</h1>
+        <br>
+        <br>
+        <form action="submit.php" method="post">
+            <label for="Name">Full Name</label>
+            <input type="text" id="dname" name="dname"/><br><br>
+            <label for="dob">Date of birth</label>
+            <input type="date" id="dob" name="dob"/><br><br>
+            <label for="bloodgroup">Bloodgroup</label>
+            <select name="bloodgroup" id="bloodgroup">
+                <option value="Select">-----Select-----</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="A1+">A1+</option>
+                <option value="A1-">A1-</option>
+                <option value="A1B+">A1B+</option>
+                <option value="A1B-">A1B-</option>
+                <option value="A2+">A2+</option>
+                <option value="A2-">A2-</option>
+                <option value="A2B+">A2B+</option>
+                <option value="A2B-">A2B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="Bombay Blood Group">Bombay Blood Group</option>
+                <option value="INRA">INRA</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select><br><br>
+            <label for="med">Under Medication?</label><br>
+            <input type="radio" id="med" name="med" value="yes"/> Yes<br>
+            <input type="radio" id="med" name="med" value="no"/> No<br><br>
+            <label for="lastdonationdate">Date of last donation</label>
+            <input type="date" id="ldate" name="ldate"/><br><br>
+            <label for="email">Email</label>
+            <input type="email" id="mail" name="mail"/><br><br>
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone"/><br><br>
+            <label for="state">State</label>
+            <input type="text" id="state" name="state"/><br><br>
+            <label for="distrcit">District</label>
+            <input type="text" id="distrcit" name="distrcit"/><br><br>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"/><br><br>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password"/><br><br>
+            <input type="submit" value="submit"/>
+            <input type="reset" value="clear"/>
+        </form>
+    </body>
+</html>
