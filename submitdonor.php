@@ -8,15 +8,14 @@
     $ldate=$_POST['ldate'];
     $email=$_POST['email'];
     $phone=$_POST['phone'];
-    $state=$_POST['state'];
     $district=$_POST['district'];
     $usrname=$_POST['usrname'];
     $pwd=$_POST['pwd'];
     //Establishing connection to db
     include 'conn.php';
     //inserting values into the table donorreg
-    $sql="INSERT INTO donorreg (usrname,pwd,dname,dob,med,ldate,bgroup,phone,email,state,district) 
-    values ('$usrname','$pwd','$dname','$dob','$med','$ldate','$bgroup','$phone','$email','$state','$district');";
+    $sql="INSERT INTO donorreg (usrname,pwd,dname,dob,med,ldate,bgroup,phone,email,district) 
+    values ('$usrname','$pwd','$dname','$dob','$med','$ldate','$bgroup','$phone','$email','$district');";
     if ($conn->query($sql) === TRUE) 
     {
         echo "\nData inserted Succesfully";
