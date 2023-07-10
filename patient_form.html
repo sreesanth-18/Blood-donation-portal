@@ -1,68 +1,100 @@
-//Html form for patient registration
 <!DOCTYPE html>
 <html>
     <head>
-        <title>patient registration</title>
+        <title>Patient registration</title>
+        <link rel="stylesheet" href="css/reg.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet" type='text/css'>
+        <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <h1>patient signup</h1>
-        <br>
-        <br>
-        <form action="submitpatient.php" method="post">
-            <label for="Name">Full Name</label>
-            <input type="text" id="pname" name="pname"/><br><br>
-            <label for="dob">Date of birth</label>
-            <input type="date" id="dob" name="dob"/><br><br>
-            <label for="bloodgroup">Bloodgroup</label>
-            <select name="bgroup" id="bgroup">
-                <option value="Select">-----Select-----</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="A1+">A1+</option>
-                <option value="A1-">A1-</option>
-                <option value="A1B+">A1B+</option>
-                <option value="A1B-">A1B-</option>
-                <option value="A2+">A2+</option>
-                <option value="A2-">A2-</option>
-                <option value="A2B+">A2B+</option>
-                <option value="A2B-">A2B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="B+">B+</option>
-                <option value=""B->B-</option>
-                <option value="Bombay Blood Group">Bombay Blood group</option>
-                <option value="INRA">INRA</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-            </select><br><br>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email"/><br><br>
-            <label for="phone">phone</label>
-            <input type="text" id="phone" name="phone"/><br><br>
-            <label for="district">District</label>
-            <select name="district" id="district">
-                <option></option>
-                <option value="alappuzha">Alappuzha</option>
-                <option value="ernakulam">Ernakulam</option>
-                <option value="idukki">Idukki</option>
-                <option value="kannur">Kannur</option>
-                <option value="kasaragod">Kasaragod</option>
-                <option value="kollam">Kollam</option>
-                <option value="kottayam">Kottayam</option>
-                <option value="kozhikode">Kozhikode</option>
-                <option value="malappuram">Malappuram</option>
-                <option value="palakkad">Palakkad</option>
-                <option value="pathanamthitta">Pathanamthitta</option>
-                <option value="thrissur">Thrissur</option>
-                <option value="thiruvananthapuram">Thiruvananthapuram</option>
-                <option value="wayanad">Wayanad</option>
-            </select><br><br>  
-            <label for="username">Username</label>
-            <input type="text" id="usrname" name="usrname"/><br><br>
-            <label for="password">Password</label>
-            <input type="text" id="pwd" name="pwd"/><br><br>
-            <input type="submit" value="submit"/>
-            <input type="reset" value="clear"/>
-        </form>
+         <!--Header with navbar-->
+         <section class="header">
+            <div class="logo">
+                <a href="index.html">VITAL<strong>FLOW</strong> Donors</a>
+            </div>
+                <ul class="navbar">
+                    <a href="index.html"><li>Home</li></a>
+                    <a href="about.html"><li>About</li></a>
+                    <a href="contact.html"><li>Contact</li></a>
+                </ul>
+        </section>
+        <div class="background"></div>
+        <section class="container">
+            <h1>Patient Registration</h1>
+            <form action="submitpatient.php" class="form" method="post">
+                <div class="input-box">
+                    <label for="Name">Full Name</label>
+                    <input type="text" placeholder="Enter full name" id="pname" name="pname" required/>
+                </div>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your email-id" id="email" name="email" required/>
+                </div>
+                <div class="input-box">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" placeholder="Enter your phone number" name="phone" required/>
+                </div>    
+                <div class="input-box">
+                    <label for="dob">Date of birth</label>
+                    <input type="date" placeholder="Enter birth date" id="dob" name="dob" required/>
+                </div>
+                <div class="column">
+                    <div class="select-box">
+                        <select name="bgroup" id="bgroup" required>
+                            <option>Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="A1+">A1+</option>
+                            <option value="A1-">A1-</option>
+                            <option value="A1B+">A1B+</option>
+                            <option value="A1B-">A1B-</option>
+                            <option value="A2+">A2+</option>
+                            <option value="A2-">A2-</option>
+                            <option value="A2B+">A2B+</option>
+                            <option value="A2B-">A2B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="B+">B+</option>
+                            <option value=""B->B-</option>
+                            <option value="Bombay Blood Group">Bombay Blood group</option>
+                            <option value="INRA">INRA</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="select-box">
+                        <select name="district" id="district" required>
+                            <option>District</option>
+                            <option value="alappuzha">Alappuzha</option>
+                            <option value="ernakulam">Ernakulam</option>
+                            <option value="idukki">Idukki</option>
+                            <option value="kannur">Kannur</option>
+                            <option value="kasaragod">Kasaragod</option>
+                            <option value="kollam">Kollam</option>
+                            <option value="kottayam">Kottayam</option>
+                            <option value="kozhikode">Kozhikode</option>
+                            <option value="malappuram">Malappuram</option>
+                            <option value="palakkad">Palakkad</option>
+                            <option value="pathanamthitta">Pathanamthitta</option>
+                            <option value="thrissur">Thrissur</option>
+                            <option value="thiruvananthapuram">Thiruvananthapuram</option>
+                            <option value="wayanad">Wayanad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="username">Username</label>
+                    <input type="text" id="usrname" placeholder="Enter your username" name="usrname" required/>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="pwd" placeholder="Enter your password" name="pwd" required/> 
+                </div>
+               <input type="submit" value="Register"/>                
+            </form>
+        </section>
     </body>
 </html>
