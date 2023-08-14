@@ -13,7 +13,9 @@
             $_SESSION['username'] = $usrname;
             header("Location: dashboard.php");
             exit();
-        } else {
+        } 
+        else 
+        {
             echo "Invalid username or password. Please try again.";
         }
         $conn->close();

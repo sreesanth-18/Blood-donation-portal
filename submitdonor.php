@@ -8,7 +8,7 @@
     $phone=$_POST['phone'];
     $district=$_POST['district'];
     $usrname=$_POST['usrname'];
-    $pwd=$_POST['pwd'];
+    $pwd=md5($_POST['pwd']);
     //Establishing connection to db
     include 'conn.php';
     //inserting values into the table donorreg
