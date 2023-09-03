@@ -11,7 +11,7 @@
 
         if ($result->num_rows == 1) {
             $_SESSION['username'] = $usrname;
-            header("Location: dashboard.php");
+            header("Location: patient_form.html");
             exit();
         } 
         else 
