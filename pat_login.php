@@ -20,7 +20,7 @@
             if (password_verify($password, $hashedPasswordFromDB)) 
             {
                 $_SESSION['username'] = $usrname;
-                header("Location: dashboard.html");
+                header("Location: pat_dashboard.php");
                 exit();
             }
             else
