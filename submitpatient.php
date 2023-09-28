@@ -1,4 +1,3 @@
-//php action page to fetch data from the donor registratin form and store it into the donorreg table
 <?php
     //vars
     $pname=$_POST['pname'];
@@ -8,21 +7,42 @@
     $phone=$_POST['phone'];
     $district=$_POST['district'];
     $usrname=$_POST['usrname'];
-    $pwd=md5($_POST['pwd']);
+    //$pwd=md5($_POST['pwd']);
+    $pwd=password_hash($_POST['pwd'], PASSWORD_BCRYPT);
     //Establishing connection to db
     include 'conn.php';
-    //inserting values into the table patreg
-    $sql="INSERT INTO patreg (usrname,pwd,pname,dob,bgroup,phone,email,district) 
-    values ('$usrname','$pwd','$pname','$dob','$bgroup','$phone','$email','$district');";
-    if ($conn->query($sql) === TRUE) 
-    {
-        echo "\nData inserted Succesfully";
-    }  
-    else 
-    {
-        echo "Error inserting into database: " . $conn->error;
-    }
-   
-    $conn->close();
-    
 
+    $user_count_qry = "SELECT COUNT(*) FROM patreg WHERE usrname = '$usrname'";
+    $user_count_res_array = mysqli_query($conn, $user_count_qry);
+    $user_count_res = mysqli_fetch_array($user_count_res_array);
+    if (is_null($user_count_res))
+    $user_count_res[0] = 0;
+    if($user_count_res[0] == 0)
+    {
+        //inserting values into the table patreg
+        $sql="INSERT INTO patreg (usrname,pwd,pname,dob,bgroup,phone,email,district) 
+        values ('$usrname','$pwd','$pname','$dob','$bgroup','$phone','$email','$district');";
+        if ($conn->query($sql) == TRUE) 
+        {
+            header("Location: registration_success.html");
+            exit();
+        }  
+        else 
+        {
+            echo '<script>alert("Invalid data entered, please try again");
+            window.location.href = "patient_form.html";
+            </script>';
+        }
+    }
+    else
+    {
+        if ($user_count_res[0] != 0)
+        {
+            echo '<script>alert("Username already exists, please try again with a different username");
+            window.location.href = "patient_form.html";
+            </script>';
+        }
+    }
+    $conn->close();
+?>
+ 

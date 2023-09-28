@@ -15,7 +15,6 @@
             </div>
                 <ul class="navbar">
                     <a href="index.html"><li>Home</li></a>
-
                     <a href="about.html"><li>About</li></a>
                     <a href="contact.html"><li>Contact</li></a>
                 </ul>
@@ -34,7 +33,7 @@
                 </div>
                 <div class="input-box">
                     <label for="phone">Phone</label>
-                    <input type="text" id="phone" placeholder="Enter your phone number" name="phone" required/>
+                    <input type="text" id="phone" placeholder="Enter your phone number" name="phone" required pattern="[0-9]{10}" title="Please enter a 10-digit phone number"/>
                 </div>    
                 <div class="input-box">
                     <label for="dob">Date of birth</label>
@@ -94,9 +93,12 @@
                     <label for="password">Password</label>
                     <input type="password" id="pwd" placeholder="Enter your password" name="pwd" required/> 
                 </div>
-               <input type="submit" value="Register"/>                
+               <input type="submit" value="Register"/>     
             </form>
+            <div class="nreg">
+                <br>
+                <a href="pat_login.html">Already registered?</a>
+            </div>           
         </section>
-        <script src="js/patient_val.js"></script>
     </body>
 </html>
