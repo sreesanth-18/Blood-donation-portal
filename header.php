@@ -126,14 +126,14 @@
         <li class="dropdown-container">
             <span>Search by Bloodgroup</span>
             <ul class="dropdown">
-                <li><a href="team.html">A+</a></li>
-                <li><a href="mission.html">A-</a></li>
-                <li><a href="mission.html">AB+</a></li>
-                <li><a href="mission.html">AB-</a></li>
-                <li><a href="mission.html">B+</a></li>
-                <li><a href="mission.html">B+</a></li>
-                <li><a href="mission.html">O+</a></li>
-                <li><a href="mission.html">O-</a></li>
+                <li><a href="bgroup_sorted\apos.php">A+</a></li>
+                <li><a href="bgroup_sorted\aneg.php">A-</a></li>
+                <li><a href="bgroup_sorted\abpos.php">AB+</a></li>
+                <li><a href="bgroup_sorted\abneg.php">AB-</a></li>
+                <li><a href="bgroup_sorted\bpos.php">B+</a></li>
+                <li><a href="bgroup_sorted\bneg.php">B-</a></li>
+                <li><a href="bgroup_sorted\opos.php">O+</a></li>
+                <li><a href="bgroup_sorted\oneg.php">O-</a></li>
             </ul>
         </li>
         <a href="about.html"><li>Account Dashboard</li></a>

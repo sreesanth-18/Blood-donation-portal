@@ -12,7 +12,7 @@
     //Establishing connection to db
     include 'conn.php';
 
-    $user_count_qry = "SELECT COUNT(*) FROM patreg WHERE usrname = '$usrname'";
+    $user_count_qry = "SELECT COUNT(*) FROM patreg WHERE patusr = '$usrname'";
     $user_count_res_array = mysqli_query($conn, $user_count_qry);
     $user_count_res = mysqli_fetch_array($user_count_res_array);
     if (is_null($user_count_res))
@@ -20,7 +20,7 @@
     if($user_count_res[0] == 0)
     {
         //inserting values into the table patreg
-        $sql="INSERT INTO patreg (usrname,pwd,pname,dob,bgroup,phone,email,district) 
+        $sql="INSERT INTO patreg (patusr,pwd,pname,dob,bgroup,phone,email,district) 
         values ('$usrname','$pwd','$pname','$dob','$bgroup','$phone','$email','$district');";
         if ($conn->query($sql) == TRUE) 
         {
