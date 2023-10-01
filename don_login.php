@@ -7,7 +7,7 @@
         $password = $_POST['pwd'];
         include 'conn.php';
 
-        $sql = "SELECT pwd FROM donorreg WHERE usrname='$usrname'";
+        $sql = "SELECT pwd FROM donorreg WHERE donusr='$usrname'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) 
@@ -18,7 +18,7 @@
             // Verify the entered password against the stored hashed password
             if (password_verify($password, $hashedPasswordFromDB)) 
             {
-                $_SESSION['username'] = $usrname;
+                $_SESSION['usrname'] = $usrname;
                 header("Location: dashboard.html");
                 exit();
             }

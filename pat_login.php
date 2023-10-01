@@ -8,7 +8,7 @@
         include 'conn.php';
         
         // Fetch the hashed password from the database based on the username
-        $sql = "SELECT pwd FROM patreg WHERE usrname='$usrname'";
+        $sql = "SELECT pwd FROM patreg WHERE patusr='$usrname'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) 
@@ -19,7 +19,7 @@
             // Verify the entered password against the stored hashed password
             if (password_verify($password, $hashedPasswordFromDB)) 
             {
-                $_SESSION['username'] = $usrname;
+                $_SESSION['usrname'] = $usrname;
                 header("Location: pat_dashboard.php");
                 exit();
             }

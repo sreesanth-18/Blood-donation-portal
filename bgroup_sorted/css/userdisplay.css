@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("login.jpeg");
+    background-size: 1920px;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 1500px;
+    width: 95%;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+   /* justify-content: space-between;*/
+    margin: auto;
+}
+
+main .card {
+    background-color: whitesmoke;
+    max-width: 300px;
+    flex: 1 1 calc(33.33% - 40px);
+    text-align: center;
+    height: 450px;
+    border: 1px solid lightgrey;
+    margin: 20px;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+main .card .image {
+    padding-top: 10px;
+    height: 50%;
+    margin-bottom: 20px;
+}
+
+main .card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+main .card .caption {
+    padding-left: 1em;
+    text-align: left;
+    /* Reduce line height for better spacing */
+}
+
+main .card .caption p {
+    font-size: 1.5rem;
+    margin: 0; /* Remove margin to prevent extra space */
+}
+
+main .card .caption .name {
+    display: flex;
+   /* Add space between name and blood group */
+}
+
+main .card .caption .bloodgroup {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FF0000;
+    margin-top: 10px; /* Add margin to separate blood group from name */
+}
+main .card button {
+    width: 100px;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 25px;
+    background: orangered;
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin: auto; /* Center the button horizontally and vertically */
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+main .card button:hover {
+    border-color: orangered;
+    transition: 0.5s;
+}
