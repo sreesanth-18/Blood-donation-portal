@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $bgroup = $_SESSION['bgroup']; // Store the bloodgroup session value in a variable
+?>
 <html>
     <head>
         <title>Donor registration</title>
@@ -13,16 +17,18 @@
         <main>
             <?php
                 include 'conn.php';
-                $s = "select * from donorreg";
+                $s = "select * from donorreg where bgroup='$bgroup';";
                 $rs = mysqli_query($conn, $s);
                         
-                if (mysqli_num_rows($rs) > 0) {
+                if (mysqli_num_rows($rs) > 0) 
+                {
                     // Loop through the database results and create cards for each donor
-                    while ($row = mysqli_fetch_assoc($rs)) {
+                    while ($row = mysqli_fetch_assoc($rs)) 
+                    {
                         echo '<form action="request.php" method="post">';
                         echo '<div class="card">';
                         echo '<div class="image">';
-                        echo '<img src="images\user.png">';
+                        echo '<img src="images\user.png">'; 
                         echo '</div>';
                         echo '<div class="caption">';
                         echo '<p class="name">' . $row['dname'] . '</p>';
@@ -32,10 +38,12 @@
                         echo '<button class="request" type="submit">Request</button>';
                         echo '</div>';
                         echo '</form>';
+
                     }
-                } else {
-                    // No donors found
-                    echo '<p>No donors found</p>';
+                }
+                else
+                {
+                    echo '<p class="noresult"> No donors found. Kindly check with your nearest Blood bank</p>';
                 }
             ?>
         </main>
