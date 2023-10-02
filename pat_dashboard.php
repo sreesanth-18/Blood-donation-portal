@@ -4,7 +4,7 @@
 ?>
 <html>
     <head>
-        <title>Donor registration</title>
+        <title>Recipient Dashboard</title>
         <link rel="stylesheet" href="css\userdisplay.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" type='text/css'>
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet" type='text/css'>
@@ -25,7 +25,12 @@
                     // Loop through the database results and create cards for each donor
                     while ($row = mysqli_fetch_assoc($rs)) 
                     {
+                        $donorUsername = $row['donusr']; // Replace 'username' with the actual column name in your donor table
+                        $patientUsername = $_SESSION['patusr'];
+
                         echo '<form action="request.php" method="post">';
+                        echo '<input type="hidden" name="donor_username" value="' . $donorUsername . '">';
+                        echo '<input type="hidden" name="patient_username" value="' . $patientUsername . '">';
                         echo '<div class="card">';
                         echo '<div class="image">';
                         echo '<img src="images\user.png">'; 
@@ -43,7 +48,10 @@
                 }
                 else
                 {
-                    echo '<p class="noresult"> No donors found. Kindly check with your nearest Blood bank</p>';
+                    echo '<div class="message">
+                            <h2>No Donors Found</h2>
+                            <p>If an emergency, kindly check with your nearest blood bank at the earliest.<br> <a href="https://www.google.com/maps/search/blood+bank+near+me/">More details...</a></p>
+                        </div>';
                 }
             ?>
         </main>
