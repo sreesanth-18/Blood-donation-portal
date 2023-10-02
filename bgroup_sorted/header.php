@@ -120,7 +120,7 @@
 <body>
 <section class="header">
     <div class="logo">
-        <a href="index.html"><strong>VITALFLOW</strong></a>
+        <a href="../index.html"><strong>VITALFLOW</strong></a>
     </div>
     <ul class="navbar">
     <li class="dropdown-container">
@@ -137,7 +137,7 @@
             </ul>
         </li>
         <a href="about.html"><li>Account Dashboard</li></a>
-        <a href="contact.html"><li>Logout</li></a>
+        <a href="../logout.php"><li>Logout</li></a>
     </ul>
 </section>
 </body>
