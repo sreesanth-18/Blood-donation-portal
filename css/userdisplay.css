@@ -93,3 +93,28 @@ main .card button:hover {
     border-color: orangered;
     transition: 0.5s;
 }
+main .message{
+    margin-top: 50px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto;   
+    padding: 0 20px;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: whitesmoke;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px;
+}
+main .message h2{
+    text-align: center;
+    border-bottom: 1px solid silver;
+    padding-bottom: 5px;
+
+}
+main .message p{
+    justify-content: center;
+    font-family: "Poppins",sans-serif ;
+    font-size: 19px;
+}
