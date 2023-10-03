@@ -1,6 +1,7 @@
 <?php
     session_start();
     $bgroup = $_SESSION['bgroup']; // Store the bloodgroup session value in a variable
+    $patusr=$_SESSION['patusr'];
 ?>
 <html>
     <head>
