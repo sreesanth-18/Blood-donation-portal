@@ -16,12 +16,23 @@ body {
 
 main {
     max-width: 1500px;
-    width: 95%;
+    width: 75%;
     margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
    /* justify-content: space-between;*/
     margin: auto;
+    margin-top: 75px;
+    margin-bottom: 150px;
+    margin-left: 200px;
+    margin-right: 150px; 
+}
+
+main .container{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main .card {
