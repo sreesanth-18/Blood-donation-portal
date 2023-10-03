@@ -47,7 +47,7 @@
 
         a:active {
             text-decoration: none;
-            color: whitesmoke;
+            color: black !important;
         }
 
         .navbar {
@@ -62,7 +62,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 500;
             display: inline-block;
-            height: 150%;
+            height: 15%;
             vertical-align: middle;
             padding: 10px;
         }
@@ -120,7 +120,7 @@
 <body>
 <section class="header">
     <div class="logo">
-        <a href="index.html"><strong>VITALFLOW</strong></a>
+        <a href="#"><strong>VITALFLOW</strong></a>
     </div>
     <ul class="navbar">
         <li class="dropdown-container">
@@ -136,6 +136,7 @@
                 <li><a href="bgroup_sorted\oneg.php">O-</a></li>
             </ul>
         </li>
+        <a href="request_dashboard.php"><li>Active requests</li></a>
         <a href="about.html"><li>Account Dashboard</li></a>
         <a href="logout.php"><li>Logout</li></a>
     </ul>
