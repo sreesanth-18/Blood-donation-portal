@@ -1,37 +1,66 @@
 <?php
 require('conn.php');
+include 'header_new.php';
 session_start();
-$patusr = $_SESSION['donusr'];
-$s = "SELECT r.request_id, d.*, r.status 
+$donorUsername = $_SESSION['donusr'];
+
+// Check for errors in the query execution
+$s = "SELECT r.request_id, p.*, r.status 
         FROM request r
-        INNER JOIN donorreg d ON r.donor_id = d.donusr
-        WHERE r.patient_id = '$patusr'
+        INNER JOIN patreg p ON r.patient_id = p.patusr
+        WHERE r.donor_id = '$donorUsername'
         ORDER BY CASE
             WHEN r.status = 'Approved' THEN 1
             WHEN r.status = 'Declined' THEN 2
             ELSE 3
         END";
 $rs = mysqli_query($conn, $s);
+
+if (!$rs) {
+    // If there's an error in the query, you can log or display the error
+    die('Error: ' . mysqli_error($conn));
+}
 ?>
 <html>
 
 <head>
-    <title>Request Dashboard</title>
+    <title>Donor Request Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dyykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            // Function to handle Cancel button click
-            $(".cancel-btn").click(function () {
+            $(document).ready(function () 
+            {
+            // Function to handle Approve button click
+            $(".approve-btn").click(function () {
                 var requestId = $(this).data("request-id");
 
-                // Send an AJAX request to update the status to "Cancelled"
+                // Send an AJAX request to update the status to "Approved"
                 $.ajax({
-                    url: "update_status.php", // Specify the PHP script to handle the update
+                    url: "don_update_status.php", // Update the URL to "don_update_status.php"
                     method: "POST",
                     data: {
-                        request_id: requestId
+                        request_id: requestId,
+                        status: "Approved"
+                    },
+                    success: function (response) {
+                        // Refresh the page or update the UI as needed
+                        location.reload(); // Reload the page for simplicity
+                    }
+                });
+            });
+
+            // Function to handle Delete button click
+            $(".delete-btn").click(function () {
+                var requestId = $(this).data("request-id");
+
+                // Send an AJAX request to update the status to "Declined"
+                $.ajax({
+                    url: "don_update_status.php", // Update the URL to "don_update_status.php"
+                    method: "POST",
+                    data: {
+                        request_id: requestId,
+                        status: "Declined"
                     },
                     success: function (response) {
                         // Refresh the page or update the UI as needed
@@ -49,7 +78,7 @@ $rs = mysqli_query($conn, $s);
             <div class="col">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h2 class="display-6 text-center">Request Status</h2>
+                        <h2 class="display-6 text-center">Requests Received</h2>
                     </div>
                 </div>
                 <?php
@@ -59,38 +88,28 @@ $rs = mysqli_query($conn, $s);
                     echo '<tr class="bg-dark">';
                     echo '<td>Request ID</td>';
                     echo '<td>Name</td>';
-                    echo '<td>Phone</td>';
+                    echo '<td>Blood Group</td>';
                     echo '<td>District</td>';
-                    echo '<td>Bloodgroup</td>';
                     echo '<td>Status</td>';
-                    echo '<td>Cancel</td>';
+                    echo '<td>Action</td>';
                     echo '</tr>';
                     echo '</div>';
 
                     while ($row = mysqli_fetch_assoc($rs)) {
                         echo '<tr>';
                         echo '<td>' . $row['request_id'] . '</td>';
-                        echo '<td>' . $row['dname'] . '</td>';
-                        echo '<td>';
-
-                        // Check if the status is "Approved"
-                        if ($row['status'] == 'Approved') {
-                            echo $row['phone']; // Display the phone number
-                        } else {
-                            echo '**********'; // Display asterisks
-                        }
-
-                        echo '</td>';
-                        echo '<td>' . $row['district'] . '</td>';
+                        echo '<td>' . $row['pname'] . '</td>';
                         echo '<td>' . $row['bgroup'] . '</td>';
+                        echo '<td>' . $row['district'] . '</td>';
                         echo '<td>' . $row['status'] . '</td>';
 
                         // Check if the status is not one of these
-                        if ($row['status'] != 'Approved' && $row['status'] != 'Cancelled' && $row['status'] != 'Declined') {
-                            // Add a data attribute to store the request ID
-                            echo '<td><button data-request-id="' . $row['request_id'] . '" class="btn btn-danger cancel-btn">Cancel</button></td>';
+                        if ($row['status'] != 'Approved' && $row['status'] != 'Declined') {
+                            // Add data attributes to store the request ID
+                            echo '<td><button data-request-id="' . $row['request_id'] . '" class="btn btn-success approve-btn">Approve</button>';
+                            echo '<button data-request-id="' . $row['request_id'] . '" class="btn btn-danger delete-btn">Delete</button></td>';
                         } else {
-                            echo '<td></td>'; // Display an empty cell if status is one of the mentioned
+                            echo '<td></td>'; // Display an empty cell if the status is one of the mentioned
                         }
 
                         echo '</tr>';
