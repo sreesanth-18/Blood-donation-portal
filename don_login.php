@@ -3,11 +3,11 @@
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $usrname = $_POST['usrname'];
+        $donusr = $_POST['donusr'];
         $password = $_POST['pwd'];
         include 'conn.php';
 
-        $sql = "SELECT pwd FROM donorreg WHERE donusr='$usrname'";
+        $sql = "SELECT pwd FROM donorreg WHERE donusr='$donusr'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) 
@@ -18,8 +18,8 @@
             // Verify the entered password against the stored hashed password
             if (password_verify($password, $hashedPasswordFromDB)) 
             {
-                $_SESSION['usrname'] = $usrname;
-                header("Location: dashboard.html");
+                $_SESSION['donusr'] = $donusr;
+                header("Location: donor_request_dashboard.php");
                 exit();
             }
             else
