@@ -1,8 +1,7 @@
 <?php
 require('conn.php');
-include 'header_new.php';
 session_start();
-$patusr = $_SESSION['patusr'];
+$patusr = $_SESSION['donusr'];
 $s = "SELECT r.request_id, d.*, r.status 
         FROM request r
         INNER JOIN donorreg d ON r.donor_id = d.donusr
@@ -102,5 +101,4 @@ $rs = mysqli_query($conn, $s);
         </div>
     </div>
 </body>
-
 </html>
