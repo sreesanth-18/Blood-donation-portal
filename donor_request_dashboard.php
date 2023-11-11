@@ -82,7 +82,8 @@ if (!$rs) {
                     </div>
                 </div>
                 <?php
-                if (mysqli_num_rows($rs) > 0) {
+                if (mysqli_num_rows($rs) > 0) 
+                {
                     echo '<div class="card-body">';
                     echo '<table class="table table-bordered text-center">';
                     echo '<tr class="bg-dark">';
@@ -114,6 +115,14 @@ if (!$rs) {
 
                         echo '</tr>';
                     }
+                }
+                else {
+                    // Display Bootstrap container with alert box when no requests are found
+                    echo '<div class="container mt-3">';
+                    echo '<div class="alert alert-warning" role="alert">';
+                    echo 'No requests found.';
+                    echo '</div>';
+                    echo '</div>';
                 }
                 ?>
             </div>
