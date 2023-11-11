@@ -1,0 +1,155 @@
+body
+{
+    margin: 0%;
+    padding: 0%;
+    background-image: url("admin_bg.jpg");
+    background-size: 1920px;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+}
+.header
+{
+    width: 100%;
+    height: 89px;
+    display: block;
+    background-color: white;
+}
+.logo
+{
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 22px;
+    height: 100%;
+    display: table-cell;
+    float: left;
+    vertical-align: middle;
+    padding: 20px;
+    margin-top: 7px;
+    margin-left: 11%;
+    
+}
+a
+{
+    color: orangered;
+    -webkit-transition: 0.5s, ease;
+    -o-transition: 0.5s, ease;
+    transition: 0.5s, ease;
+    text-decoration: none;
+}
+a:hover 
+{
+    text-decoration: none !important;
+    color: black !important;
+}
+a:active
+{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.navbar
+{
+    float: right;
+    height: 100%;
+    list-style: none;
+    margin-right: 11%;
+    margin-top: 25px;
+
+}
+.navbar li
+{
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    padding: 10px;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px;
+    background-color: black;
+}
+.center h1
+{
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    color: aliceblue;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+.center form
+{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .text_field
+{
+    position: relative;
+    border-bottom: 2px solid gray;
+    margin: 30px 0;   
+}
+.text_field input
+{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background:none;
+    outline: none;
+}
+.text_field label
+{
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: gray;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: .5s;
+    pointer-events: none;
+}
+.text_field span::before
+{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    transition: .5s;
+}
+.text_field input:focus ~ label, 
+.text_field input:valid ~ label
+{
+    top: -5px;
+    color: white;
+}
+.text_field input:focus ~ span::before, 
+.text_field input:valid ~ span::before
+{
+    width: 100%;
+}
+input[type="submit"]
+{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    border-color: orangered;
+    border-radius: 25px;
+    background: orangered;
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+input[type="submit"]:hover{
+    transition: .5s;
+}
