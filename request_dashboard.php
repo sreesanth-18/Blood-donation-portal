@@ -74,11 +74,10 @@ $rs = mysqli_query($conn, $s);
                         echo '<td>' . $row['dname'] . '</td>';
                         echo '<td>';
 
-                        // Check if the status is "Approved"
                         if ($row['status'] == 'Approved') {
-                            echo $row['phone']; // Display the phone number
+                            echo $row['phone'];
                         } else {
-                            echo '**********'; // Display asterisks
+                            echo '**********'; 
                         }
 
                         echo '</td>';
