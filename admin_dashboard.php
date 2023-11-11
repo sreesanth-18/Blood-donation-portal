@@ -83,7 +83,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="link_to_total_requests_page.html"> <!-- Replace with the actual link -->
+                <a href="view_req.php"> <!-- Replace with the actual link -->
                     <div class="card">
                         <div class="card-body text-center">
                             <img src="images\request.png" alt="Request Icon" class="mb-3">
