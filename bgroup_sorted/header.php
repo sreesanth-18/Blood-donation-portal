@@ -137,7 +137,6 @@
             </ul>
         </li>
         <a href="request_dashboard.php"><li>Active requests</li></a>
-        <a href="about.html"><li>Account Dashboard</li></a>
         <a href="../logout.php"><li>Logout</li></a>
     </ul>
 </section>
