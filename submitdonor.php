@@ -8,6 +8,7 @@
     $district=$_POST['district'];
     $usrname=$_POST['usrname'];
     $pwd=password_hash($_POST['pwd'], PASSWORD_BCRYPT);
+    $pwd=password_hash($_POST['pwd'], PASSWORD_BCRYPT);
     include 'conn.php';
 
     $user_count_qry = "SELECT COUNT(*) FROM donorreg WHERE donusr = '$usrname'";
@@ -33,6 +34,13 @@
     }
     else
     {
+        if ($user_count_res[0] != 0)
+        {
+            echo '<script>alert("Username already exists, please try again with a different username");
+            window.location.href = "donor_form.html";
+            </script>';
+        }
+    }
         if ($user_count_res[0] != 0)
         {
             echo '<script>alert("Username already exists, please try again with a different username");
