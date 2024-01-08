@@ -41,12 +41,5 @@
             </script>';
         }
     }
-        if ($user_count_res[0] != 0)
-        {
-            echo '<script>alert("Username already exists, please try again with a different username");
-            window.location.href = "donor_form.html";
-            </script>';
-        }
-    }
     $conn->close();
 ?>
