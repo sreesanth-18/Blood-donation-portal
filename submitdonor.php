@@ -21,7 +21,7 @@
         values ('$usrname','$pwd','$dname','$dob','$bgroup','$phone','$email','$district');";
         if ($conn->query($sql) == TRUE) 
         {
-            header("Location: registration_success.html");
+            header("Location: registration_success_donor.html");
             exit();
         }  
         else 

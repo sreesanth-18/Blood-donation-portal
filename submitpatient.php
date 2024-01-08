@@ -24,7 +24,7 @@
         values ('$usrname','$pwd','$pname','$dob','$bgroup','$phone','$email','$district');";
         if ($conn->query($sql) == TRUE) 
         {
-            header("Location: registration_success.html");
+            header("Location: registration_success_pat.html");
             exit();
         }  
         else 
