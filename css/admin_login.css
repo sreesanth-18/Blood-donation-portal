@@ -72,13 +72,13 @@ a:active
     width: 400px;
     border-radius: 10px;
     box-shadow: 0 0 15px;
-    background-color: black;
+    background-color: white;
 }
 .center h1
 {
     font-family: 'Open Sans', sans-serif;
     text-align: center;
-    color: aliceblue;
+    color: black;
     padding: 0 0 20px 0;
     border-bottom: 1px solid silver;
 }
@@ -102,6 +102,7 @@ form .text_field
     border: none;
     background:none;
     outline: none;
+    color: black;
 }
 .text_field label
 {
@@ -129,7 +130,7 @@ form .text_field
 .text_field input:valid ~ label
 {
     top: -5px;
-    color: white;
+    color: gray;
 }
 .text_field input:focus ~ span::before, 
 .text_field input:valid ~ span::before
