@@ -1,6 +1,6 @@
 <?php
 require('conn.php');
-include 'header_new.php';
+include 'header_donor.php';
 session_start();
 $donorUsername = $_SESSION['donusr'];
 
