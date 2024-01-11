@@ -1,7 +1,7 @@
 <?php
     session_start();
-    $bgroup = $_SESSION['bgroup']; // Store the bloodgroup session value in a variable
-    $patusr=$_SESSION['patusr'];
+    $bgroup = $_SESSION['bgroup']; // Store the blood group session value in a variable
+    $patusr = $_SESSION['patusr'];
 ?>
 <html>
     <head>
@@ -39,13 +39,14 @@
                         echo '<div class="caption">';
                         echo '<p class="name">' . $row['dname'] . '</p>';
                         echo '<p class="district">' . $row['district'] . '</p>';
-                        echo '<p class="date">' .$row['ldate'] .'</p>';
+                        if ($row['ldate'] != '0000-00-00') {
+                            echo '<p class="date">' . $row['ldate'] . '</p>';
+                        }
                         echo '<p class="bloodgroup">' . $row['bgroup'] . '</p>'; // Added blood group
                         echo '</div>';
                         echo '<button class="request" type="submit">Request</button>';
                         echo '</div>';
                         echo '</form>';
-
                     }
                 }
                 else
