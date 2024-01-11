@@ -39,6 +39,7 @@
                         echo '<div class="caption">';
                         echo '<p class="name">' . $row['dname'] . '</p>';
                         echo '<p class="district">' . $row['district'] . '</p>';
+                        echo '<p class="date">' .$row['ldate'] .'</p>';
                         echo '<p class="bloodgroup">' . $row['bgroup'] . '</p>'; // Added blood group
                         echo '</div>';
                         echo '<button class="request" type="submit">Request</button>';
